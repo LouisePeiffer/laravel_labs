@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+	{{--  Pour layout back --}}
+    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
     <title>Labs - Design Studio</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Labs - Design Studio">
@@ -45,6 +46,8 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="js/map.js"></script>
     
 </body>
 </html>

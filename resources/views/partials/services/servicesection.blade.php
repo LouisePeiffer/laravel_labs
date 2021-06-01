@@ -1,23 +1,28 @@
 <!-- services section -->
 <div class="services-section spad">
-    <div class="container">
+    <div class="container" id="servicespaginate">
         <div class="section-title dark">
             <h2>Get in <span>the Lab</span> and see the services</h2>
         </div>
         <div class="row">
-            <!-- single service -->
-            <div class="col-md-4 col-sm-6">
-                <div class="service">
-                    <div class="icon">
-                        <i class="flaticon-023-flask"></i>
+            @foreach ($services9recent->reverse() as $service)
+                <!-- single service -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="service">
+                        <div class="icon">
+                            <i class="{{$service->icon}}"></i>
+                        </div>
+                        <div class="service-text">
+                            <h2>{{$service->title}}</h2>
+                            <p>{{$service->text}}</p>
+                        </div>
                     </div>
-                    <div class="service-text">
-                        <h2>Get in the lab</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-                    </div>
-                </div>
-            </div>
-            <!-- single service -->
+                </div> 
+            @endforeach
+            <div class="col-12 d-flex justify-content-center">
+                {{ $services9recent->links() }}
+              </div>
+            {{-- <!-- single service -->
             <div class="col-md-4 col-sm-6">
                 <div class="service">
                     <div class="icon">
@@ -112,10 +117,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="text-center">
-            <a href="" class="site-btn">Browse</a>
+            </div> --}}
         </div>
     </div>
 </div>

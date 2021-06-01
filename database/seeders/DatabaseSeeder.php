@@ -14,5 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call([
+            VideoSeeder::class,
+            ServiceSeeder::class,
+            DiscoverSeeder::class,
+            IphoneSeeder::class,
+            MapSeeder::class,
+        ]);
     }
 }

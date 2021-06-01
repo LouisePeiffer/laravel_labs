@@ -15,19 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-// -------- FRONT --------
-// Home
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// ---------FRONT---------
 Route::get('/', [FrontController::class, 'index'])->name('home');
-// Services
 Route::get('/services', [FrontController::class, 'services'])->name('services');
-
-// Blog
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
-
-// Contact
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 
-// ------- BACK --------
+// ---------- BACK ----------
 Route::get('/admin', [BackController::class, 'admin'])->name('admin');
+
+
+// ---------DASHBOARD---------
+Route::get('/dashboard', function () {
+    return view('back.admin');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
