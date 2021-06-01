@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,9 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 // ---------- BACK ----------
 Route::get('/admin', [BackController::class, 'admin'])->name('admin');
 
+
+// ---------- NEWSLETTER ----------'
+Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterstore');
 
 // ---------DASHBOARD---------
 Route::get('/dashboard', function () {

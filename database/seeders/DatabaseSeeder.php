@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,8 @@ class DatabaseSeeder extends Seeder
             DiscoverSeeder::class,
             IphoneSeeder::class,
             MapSeeder::class,
+            ImageSeeder::class,
+            LogoSeeder::class,
         ]);
     }
 }

@@ -2,14 +2,15 @@
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-				<img src="img/big-logo.png" alt="">
+				<img src="img/{{$logos->name}}" style="height: 100px"  alt="">
 				<p>Get your freebie template now!</p>
 			</div>
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="img/01.jpg"></div>
-			<div class="item  hero-item" data-bg="img/02.jpg"></div>
+			@foreach ($images as $image)	
+				<div class="item  hero-item" data-bg="img/{{$image->name}}"></div>
+			@endforeach
 		</div>
 	</div>
 	<!-- Intro Section -->
