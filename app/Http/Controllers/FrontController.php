@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Image;
 use App\Models\Iphone;
 use App\Models\Logo;
 use App\Models\Map;
 use App\Models\Service;
+use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,9 @@ class FrontController extends Controller
         $discovers = Discover::all();
         $images = Image::all();
         $logos = Logo::find(1);
-        return view('home', compact('video', 'services3', 'services9', 'discovers', 'images',"logos"));
+        $contacts = Contact::find(1);
+        $titles = Title::find(1);
+        return view('home', compact('video', 'services3', 'services9', 'discovers', 'images','logos', 'contacts', 'titles'));
     }
 
     // --------- SERVICES ---------
@@ -32,19 +36,22 @@ class FrontController extends Controller
         $iphoneLeft = Iphone::where('id', '<', 4)->get();
         $iphoneRight = Iphone::where('id', '>', 3)->get();
         $logos = Logo::find(1);
-        return view('front.service', compact('services9recent', 'servicesdiscover', 'iphoneLeft','iphoneRight',"logos"));
+        $contacts = Contact::find(1);
+        $titles = Title::find(1);
+        return view('front.service', compact('services9recent', 'servicesdiscover', 'iphoneLeft','iphoneRight','logos', 'contacts', 'titles'));
     }
 
     // --------- BLOG ---------
     public function blog () {
         $logos = Logo::find(1);
-        return view('front.blog',compact("logos"));
+        return view('front.blog',compact('logos'));
     }
 
     // --------- CONTACT ---------
     public function contact () {
         $map = Map::find(1);
         $logos = Logo::find(1);
-        return view('front.contact', compact('map',"logos"));
+        $contacts = Contact::find(1);
+        return view('front.contact', compact('map','logos', 'contacts'));
     }
 }

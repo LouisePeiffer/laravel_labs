@@ -5,7 +5,13 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<div class="section-title left">
-						<h2>What our clients say</h2>
+						<h2>
+							@php
+								$title1 = str_replace('(', '<span>', $titles->titleHome2);
+								$title2 = str_replace(')', '</span>', $title1);
+								echo $title2;
+							@endphp
+						</h2>
 					</div>
 					<div class="owl-carousel" id="testimonial-slide">
 						<!-- single testimonial -->

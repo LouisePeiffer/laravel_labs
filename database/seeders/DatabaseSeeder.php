@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Image;
+use Illuminate\Cache\TagSet;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +25,16 @@ class DatabaseSeeder extends Seeder
             MapSeeder::class,
             ImageSeeder::class,
             LogoSeeder::class,
+            ContactSeeder::class,
+            TitleSeeder::class,
+            GenreSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            JobSeeder::class,
+            RoleSeeder::class,
+            PostSeeder::class,
+            TagPostSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
