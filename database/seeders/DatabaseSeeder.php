@@ -26,15 +26,17 @@ class DatabaseSeeder extends Seeder
             ImageSeeder::class,
             LogoSeeder::class,
             ContactSeeder::class,
+            TestimonialSeeder::class,
             TitleSeeder::class,
             GenreSeeder::class,
             CategorySeeder::class,
+            CommentSeeder::class,
             TagSeeder::class,
             JobSeeder::class,
             RoleSeeder::class,
+            UserSeeder::class,
             PostSeeder::class,
             TagPostSeeder::class,
-            UserSeeder::class,
         ]);
     }
 }

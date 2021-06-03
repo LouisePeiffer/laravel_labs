@@ -13,7 +13,7 @@
 					<p class="con-item">{{$contacts->telephone}}</p>
 					<p class="con-item">{{$contacts->email}}</p>
 				</div>
-				<!-- contact form -->
+				{{-- <!-- contact form -->
 				<div class="col-md-6 col-pull">
 					<form class="form-class" id="con_form">
 						<div class="row">
@@ -30,7 +30,7 @@
 							</div>
 						</div>
 					</form>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>

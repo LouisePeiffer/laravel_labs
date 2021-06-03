@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('img');
             $table->foreignId('role_id')->constrained();
             $table->foreignId('job_id')->constrained();
-            $table->foreignId('post_id')->nullable()->constrained();
+            // $table->foreignId('post_id')->nullable()->constrained();
             $table->foreignId('testimonial_id')->nullable()->constrained();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

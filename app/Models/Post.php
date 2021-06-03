@@ -9,14 +9,14 @@ class Post extends Model
 {
     use HasFactory;
     public function user () {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function tag () {
         return $this->belongsToMany(Tag::class, 'tagpost', 'tag_id');
     }
     public function category () {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
     public function comment () {
         return $this->belongsTo(Comment::class);
