@@ -16,7 +16,14 @@ class CommentSeeder extends Seeder
     {
         DB::table('comments')->insert([
             [
-                "comment"=>"salut ça va?"
+                "name"=>"Ayhan",
+                "comment"=>"salut ça va?",
+                "email"=>"louise@dlgbn.com",
+                "day"=>date('D'),
+                "month"=>date('Y'),
+                "year"=>date('M'),
+                "post_id"=>1,
+                "validate"=>1,
             ]
         ]);
     }

@@ -12,30 +12,32 @@
 				</h2>
 			</div>
 			<div class="row">
-				<!-- single member -->
-				<div class="col-sm-4">
-					<div class="member">
-						<img src="img/team/1.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Project Manager</h3>
+					<!-- single member -->
+					<div class="col-sm-4">
+						<div class="member">
+							<img src="img/{{$randomUser[0]->img}}" alt="">
+							<h2>{{$randomUser[0]->name}}</h2>
+							<h3>{{$randomUser[0]->job->job}}</h3>
+						</div>
 					</div>
-				</div>
-				<!-- single member -->
-				<div class="col-sm-4">
-					<div class="member">
-						<img src="img/team/2.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Junior developer</h3>
+				
+					<!-- single member -->
+					<div class="col-sm-4">
+						<div class="member">
+							<img src="img/{{$ceo[0]->img}}" alt="">
+							<h2>{{$ceo[0]->name}}</h2>
+							<h3>{{$ceo[0]->job->job}}</h3>
+						</div>
 					</div>
-				</div>
-				<!-- single member -->
-				<div class="col-sm-4">
-					<div class="member">
-						<img src="img/team/3.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Digital designer</h3>
+
+					<!-- single member -->
+					<div class="col-sm-4">
+						<div class="member">
+							<img src="img/{{$randomUser[1]->img}}" alt="">
+							<h2>{{$randomUser[1]->name}}</h2>
+							<h3>{{$randomUser[1]->job->job}}</h3>
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	</div>

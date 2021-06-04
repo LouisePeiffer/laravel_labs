@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Logo;
-use App\Models\Post;
-use App\Models\Tag;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,25 +41,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    // public function show(Post $post)
-    // {
-    //     $article = $post;
-    //     $logos = Logo::find(1);
-    //     $categories = Category::all();
-    //     $tags = Tag::all();
-    //     return view('front.blogpostfront', compact('article','logos','categories','tags'));
-    // }
+    public function show(Subject $subject)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Subject $subject)
     {
         //
     }
@@ -71,10 +64,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Subject $subject)
     {
         //
     }
@@ -82,10 +75,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Subject $subject)
     {
         //
     }

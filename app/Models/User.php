@@ -14,6 +14,9 @@ class User extends Authenticatable
     public function post () {
         return $this->hasMany(Post::class);
     }
+    public function job () {
+        return $this->belongsTo(Job::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

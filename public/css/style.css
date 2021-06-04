@@ -778,7 +778,7 @@ ul {
 	outline: none;
 }
 
-/* .form-class input[type="email"] {
+.form-class input[type="email"] {
 	width: 100%;
 	margin-bottom: 26px;
 	border: none;
@@ -800,7 +800,7 @@ ul {
 .form-class select:focus,
 .form-class select:hover {
 	outline: none;
-} */
+}
 
 
 
@@ -1293,7 +1293,11 @@ ul {
 }
 
 .single-post .author .avatar img {
-	min-width: 117px;
+	/* min-width: 117px; */
+	height: 100px;
+	width: 100px;
+	object-fit: cover;
+	object-position: top;
 }
 
 .single-post .author .author-info h2 {

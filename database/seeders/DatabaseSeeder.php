@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Subject;
 use Illuminate\Cache\TagSet;
 use Illuminate\Database\Seeder;
 
@@ -28,14 +29,15 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             TestimonialSeeder::class,
             TitleSeeder::class,
+            SubjectSeeder::class,
             GenreSeeder::class,
             CategorySeeder::class,
-            CommentSeeder::class,
             TagSeeder::class,
             JobSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
             PostSeeder::class,
+            CommentSeeder::class,
             TagPostSeeder::class,
         ]);
     }

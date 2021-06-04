@@ -19,12 +19,13 @@ class CreatePostsTable extends Migration
             $table->string('img');
             $table->text('text');
             $table->foreignId('category_id')->constrained();
-            $table->foreignId('tag_id')->constrained();
+            // $table->foreignId('tag_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('comment_id')->nullable()->constrained();
+            // $table->foreignId('comment_id')->nullable()->constrained();
             $table->string('day');
             $table->string('month');
             $table->string('year');
+            $table->boolean('validate');
             $table->timestamps();
         });
     }

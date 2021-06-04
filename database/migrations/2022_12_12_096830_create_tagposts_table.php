@@ -13,7 +13,7 @@ class CreateTagPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_posts', function (Blueprint $table) {
+        Schema::create('tagposts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained();
             $table->foreignId('tag_id')->constrained();
@@ -28,6 +28,6 @@ class CreateTagPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_posts');
+        Schema::dropIfExists('tagposts');
     }
 }

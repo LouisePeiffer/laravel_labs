@@ -1,7 +1,8 @@
-{{-- @component('mail::message')
+@component('mail::message')
 # Introduction
 
-Bienvenue, {{$mail->email}}!
+Bienvenue, {{$mail->name}}!
+Votre email est : {{$mail->mail}}
 
 @component('mail::button', ['url' => ''])
 Button Text
@@ -9,4 +10,4 @@ Button Text
 
 Thanks,<br>
 {{ config('app.name') }}
-@endcomponent --}}
+@endcomponent

@@ -14,7 +14,7 @@ class TagPostSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tag_posts')->insert([
+        DB::table('tagposts')->insert([
             "post_id" =>"1",
             "tag_id"=>"1",
             "created_at"=>now()
