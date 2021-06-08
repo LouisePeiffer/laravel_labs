@@ -57,7 +57,7 @@ class MapController extends Controller
      */
     public function edit(Map $map)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +69,14 @@ class MapController extends Controller
      */
     public function update(Request $request, Map $map)
     {
-        //
+        request()->validate([
+            "linkmap" =>["required"],
+        ]);
+
+        $map->linkmap = $request->linkmap;
+        $map->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**

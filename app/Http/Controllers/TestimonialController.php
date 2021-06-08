@@ -24,7 +24,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,23 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "firstname" =>["required"],
+            "name" =>["required"],
+            "text" =>["required"],
+            "job" =>["required"],
+            "img" =>["required"],
+        ]);
+
+        $testimonial = new Testimonial();
+        $testimonial->firstname = $request->firstname;
+        $testimonial->name = $request->name;
+        $testimonial->text = $request->text;
+        $testimonial->job = $request->job;
+        $testimonial->img = $request->img;
+        $testimonial->save();
+
+        return redirect()->with('success', 'Services enregistrés');
     }
 
     /**
@@ -57,7 +73,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +85,22 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        //
+        request()->validate([
+            "firstname" =>["required"],
+            "name" =>["required"],
+            "text" =>["required"],
+            "job" =>["required"],
+            "img" =>["required"],
+        ]);
+
+        $testimonial->firstname = $request->firstname;
+        $testimonial->name = $request->name;
+        $testimonial->text = $request->text;
+        $testimonial->job = $request->job;
+        $testimonial->img = $request->img;
+        $testimonial->save();
+
+        return redirect()->with('success', 'Services enregistrés');
     }
 
     /**
@@ -80,6 +111,7 @@ class TestimonialController extends Controller
      */
     public function destroy(Testimonial $testimonial)
     {
-        //
+        $testimonial->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

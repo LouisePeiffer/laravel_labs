@@ -24,7 +24,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,17 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "genre" =>["required"],
+
+        ]);
+
+        $genre = new Genre();
+        $genre->genre = $request->genre;
+
+        $genre->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -57,7 +67,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +79,16 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        request()->validate([
+            "genre" =>["required"],
+
+        ]);
+
+        $genre->genre = $request->genre;
+
+        $genre->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +99,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

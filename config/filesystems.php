@@ -35,6 +35,7 @@ return [
             'root' => storage_path('app'),
         ],
 
+        // PUBLIC pour méthode stockage sans passer par le storage
         'public' => [
             'driver' => 'local',
             'root' => public_path() . '/',

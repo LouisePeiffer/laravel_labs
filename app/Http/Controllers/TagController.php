@@ -24,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,16 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "tag" =>["required"],
+
+        ]);
+
+        $tag = new Tag();
+        $tag->tag = $request->tag;
+        $tag->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -57,7 +66,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +78,15 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        request()->validate([
+            "tag" =>["required"],
+
+        ]);
+
+        $tag->tag = $request->tag;
+        $tag->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +97,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

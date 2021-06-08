@@ -24,7 +24,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,17 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "job" =>["required"],
+
+        ]);
+
+        $job = new Job();
+        $job->subject = $request->job;
+
+        $job->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -57,7 +67,7 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +79,16 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        request()->validate([
+            "job" =>["required"],
+
+        ]);
+
+        $job->subject = $request->job;
+
+        $job->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +99,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        $job->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

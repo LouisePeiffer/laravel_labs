@@ -57,7 +57,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +69,14 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        request()->validate([
+            "link"=>["required"],
+        ]);
+
+        $video->link = $request->link;
+
+        $video->save();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**

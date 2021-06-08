@@ -57,7 +57,7 @@ class IphoneController extends Controller
      */
     public function edit(Iphone $iphone)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +69,19 @@ class IphoneController extends Controller
      */
     public function update(Request $request, Iphone $iphone)
     {
-        //
+        request()->validate([
+            "icon" =>["required"],
+            "title" =>["required"],
+            "text" =>["required"],
+        ]);
+
+        $iphone->icon = $request->icon;
+        $iphone->title = $request->title;
+        $iphone->text = $request->text;
+
+        $iphone->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +92,7 @@ class IphoneController extends Controller
      */
     public function destroy(Iphone $iphone)
     {
-        //
+        $iphone->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -38,7 +38,32 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "title" =>["required"],
+            "img" =>["required"],
+            "text" =>["required"],
+            "category_id" =>["required"],
+            "user_id" =>["required"],
+            "day" =>["required"],
+            "month" =>["required"],
+            "year" =>["required"],
+            "validate" =>["required"],
+        ]);
+
+        $post = new Post();
+        $post->title = $request->title;
+        $post->img = $request->img;
+        $post->text = $request->text;
+        $post->category_id = $request->category_id;
+        $post->user_id = $request->user_id;
+        $post->day = $request->day;
+        $post->month = $request->month;
+        $post->year = $request->year;
+        $post->validate = $request->validate;
+
+        $post->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -64,7 +89,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view();
     }
 
     /**
@@ -76,7 +101,31 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        request()->validate([
+            "title" =>["required"],
+            "img" =>["required"],
+            "text" =>["required"],
+            "category_id" =>["required"],
+            "user_id" =>["required"],
+            "day" =>["required"],
+            "month" =>["required"],
+            "year" =>["required"],
+            "validate" =>["required"],
+        ]);
+
+        $post->title = $request->title;
+        $post->img = $request->img;
+        $post->text = $request->text;
+        $post->category_id = $request->category_id;
+        $post->user_id = $request->user_id;
+        $post->day = $request->day;
+        $post->month = $request->month;
+        $post->year = $request->year;
+        $post->validate = $request->validate;
+
+        $post->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -87,6 +136,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

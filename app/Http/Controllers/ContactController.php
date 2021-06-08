@@ -24,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,25 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "text" =>["required"],
+            "titleAddress" =>["required"],
+            "postcode" =>["required"],
+            "text" =>["required"],
+            "email" =>["required"],
+
+        ]);
+
+        $contact = new Contact();
+        $contact->text = $request->text;
+        $contact->titleAddress = $request->titleAddress;
+        $contact->postcode = $request->postcode;
+        $contact->telephone = $request->telephone;
+        $contact->email = $request->email;
+
+        $contact->save();
+
+        return redirect()->with('success', 'Modifiactions enregistrées');
     }
 
     /**
@@ -57,7 +75,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +87,24 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        request()->validate([
+            "text" =>["required"],
+            "titleAddress" =>["required"],
+            "postcode" =>["required"],
+            "text" =>["required"],
+            "email" =>["required"],
+
+        ]);
+
+        $contact->text = $request->text;
+        $contact->titleAddress = $request->titleAddress;
+        $contact->postcode = $request->postcode;
+        $contact->telephone = $request->telephone;
+        $contact->email = $request->email;
+
+        $contact->save();
+
+        return redirect()->with('success', 'Modifiactions enregistrées');
     }
 
     /**
@@ -80,6 +115,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->with('success', 'Modifiactions enregistrées');
     }
 }

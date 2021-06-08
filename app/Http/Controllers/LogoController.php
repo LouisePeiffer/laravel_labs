@@ -58,7 +58,7 @@ class LogoController extends Controller
      */
     public function edit(Logo $logo)
     {
-        //
+        return view();
     }
 
     /**
@@ -70,7 +70,19 @@ class LogoController extends Controller
      */
     public function update(Request $request, Logo $logo)
     {
-        //
+        request()->validate([
+            "name" => ["required"],
+        ]);
+
+        if ($request->file('name') != null) {
+            // STORAGE
+            Storage::disk('public')->delete('img/' . $logo->name);
+            $request->file('name')->storePublicly('img/', 'public');
+            // DB
+            $logo->name = $request->file('name')->hashName();
+        }
+        $logo->save();
+        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -81,7 +93,9 @@ class LogoController extends Controller
      */
     public function destroy(Logo $logo)
     {
-        //
+        Storage::disk('public')->delete('img/'.$logo->name);
+        $logo->delete();
+        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
     }
     // public function imgResize(Request $request)
     // {

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('name');
             $table->integer('age');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->foreignId('role_id')->constrained();
             $table->foreignId('job_id')->constrained();
             // $table->foreignId('post_id')->nullable()->constrained();

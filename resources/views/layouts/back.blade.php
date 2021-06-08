@@ -9,20 +9,22 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+        <link href="css/back.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{asset('css/flaticon.css')}}"/>
     </head>
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+                <div class="sidebar-heading border-bottom bg-light" id="logo"><img src="/img/big-logo.png" alt="" width="89px"></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.profil')}}">Profil</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}">General</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.service')}}">Services</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.blog')}}">Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Contact</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -30,7 +32,6 @@
                 <!-- Top navigation-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <div class="container-fluid">
-                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">

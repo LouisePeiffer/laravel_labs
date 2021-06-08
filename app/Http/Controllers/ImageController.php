@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -24,7 +25,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +36,19 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "name" => ["required"],
+        ]);
+        
+        // Storage via input File
+        $request->file('name')->storePublicly('img/', 'public');
+
+        // DB
+        $portfolio = new Image();
+        // $portfolio->image = $request->image;
+        $portfolio->name = $request->file('name')->hashName();
+        $portfolio->save();
+        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -57,7 +70,7 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +82,19 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        //
+        request()->validate([
+            "name" => ["required"],
+        ]);
+
+        if ($request->file('name') != null) {
+            // STORAGE
+            Storage::disk('public')->delete('img/' . $image->name);
+            $request->file('name')->storePublicly('img/', 'public');
+            // DB
+            $image->name = $request->file('name')->hashName();
+        }
+        $image->save();
+        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -80,6 +105,8 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        Storage::disk('public')->delete('img/'.$image->name);
+        $image->delete();
+        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
     }
 }

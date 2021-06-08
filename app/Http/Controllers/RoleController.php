@@ -24,7 +24,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,17 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "role" =>["required"],
+
+        ]);
+
+        $role = new Role();
+        $role->role = $request->role;
+
+        $role->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -57,7 +67,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +79,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        request()->validate([
+            "role" =>["required"],
+
+        ]);
+
+        $role->role = $request->role;
+
+        $role->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +99,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }

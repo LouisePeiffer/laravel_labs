@@ -36,6 +36,10 @@ class JobSeeder extends Seeder
             [
                 "job" => "Executive Director",
             ],
+            [
+                "job"=>"employé",
+            ],
+
         ]);
     }
 }

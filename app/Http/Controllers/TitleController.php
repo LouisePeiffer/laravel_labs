@@ -24,7 +24,7 @@ class TitleController extends Controller
      */
     public function create()
     {
-        //
+        return view();
     }
 
     /**
@@ -35,7 +35,17 @@ class TitleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "title" =>["required"],
+
+        ]);
+
+        $title = new Title();
+        $title->title = $request->title;
+
+        $title->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -57,7 +67,7 @@ class TitleController extends Controller
      */
     public function edit(Title $title)
     {
-        //
+        return view();
     }
 
     /**
@@ -69,7 +79,16 @@ class TitleController extends Controller
      */
     public function update(Request $request, Title $title)
     {
-        //
+        request()->validate([
+            "title" =>["required"],
+
+        ]);
+
+        $title->title = $request->title;
+
+        $title->save();
+
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -80,6 +99,7 @@ class TitleController extends Controller
      */
     public function destroy(Title $title)
     {
-        //
+        $title->delete();
+        return redirect()->with('success', 'Modifications enregistrées');
     }
 }
