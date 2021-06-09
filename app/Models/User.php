@@ -17,6 +17,12 @@ class User extends Authenticatable
     public function job () {
         return $this->belongsTo(Job::class);
     }
+    public function genre () {
+        return $this->belongsTo(Genre::class);
+    }
+    public function role () {
+        return $this->belongsTo(Role::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

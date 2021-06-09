@@ -16,13 +16,13 @@ class GenreSeeder extends Seeder
     {
         DB::table('genres')->insert([
             [
-                "genre"=>"femme",
+                "name"=>"femme",
             ],
             [
-                "genre"=>"homme",
+                "name"=>"homme",
             ],
             [
-                "genre"=>"x",
+                "name"=>"x",
             ],
         ]);
     }

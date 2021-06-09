@@ -31,7 +31,7 @@ class FrontController extends Controller
         $images = Image::all();
         $logos = Logo::find(1);
         $contacts = Contact::find(1);
-        $titles = Title::find(1);
+        $titles = Title::all();
         $testimonials = Testimonial::all();
         $subjects = Subject::all();
         $users = User::all();
@@ -52,7 +52,7 @@ class FrontController extends Controller
         $iphoneRight = Iphone::where('id', '>', 3)->get();
         $logos = Logo::find(1);
         $contacts = Contact::find(1);
-        $titles = Title::find(1);
+        $titles = Title::all();
         $posts = Post::inRandomOrder()->limit(3)->get();
         $subjects = Subject::all();
         $users = User::all();

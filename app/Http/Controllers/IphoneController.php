@@ -70,12 +70,12 @@ class IphoneController extends Controller
     public function update(Request $request, Iphone $iphone)
     {
         request()->validate([
-            "icon" =>["required"],
+            "icon_id" =>["required"],
             "title" =>["required"],
             "text" =>["required"],
         ]);
 
-        $iphone->icon = $request->icon;
+        $iphone->icon_id = $request->icon_id;
         $iphone->title = $request->title;
         $iphone->text = $request->text;
 

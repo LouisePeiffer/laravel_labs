@@ -80,11 +80,11 @@ class GenreController extends Controller
     public function update(Request $request, Genre $genre)
     {
         request()->validate([
-            "genre" =>["required"],
+            "name" =>["required"],
 
         ]);
 
-        $genre->genre = $request->genre;
+        $genre->name = $request->name;
 
         $genre->save();
 

@@ -14,7 +14,7 @@
                 @endif
                         <div class="lab-card">
                             <div class="icon">
-                                <i class="{{$service->icon}}"></i>
+                                <i class="{{$service->icon->name}}"></i>
                             </div>
                             <h2>{{$service->title}}</h2>
                             <p>{{$service->text}}</p>
@@ -33,7 +33,7 @@
             <div class="section-title">
                 <h2>
                     @php
-                        $title1 = str_replace('(', '<span>', $titles->titleHome1);
+                        $title1 = str_replace('(', '<span>', $titles[0]->title);
                         $title2 = str_replace(')', '</span>', $title1);
                         echo $title2;
                     @endphp

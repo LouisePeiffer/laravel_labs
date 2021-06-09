@@ -67,7 +67,7 @@ class TitleController extends Controller
      */
     public function edit(Title $title)
     {
-        return view();
+        return view('back.discover.editTitleDiscover', compact('title'));
     }
 
     /**
@@ -88,7 +88,7 @@ class TitleController extends Controller
 
         $title->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.discover')->with('success', 'Modifications enregistrées');
     }
 
     /**

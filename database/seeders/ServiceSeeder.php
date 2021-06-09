@@ -16,53 +16,53 @@ class ServiceSeeder extends Seeder
     {
         DB::table('services')->insert([
             [
-                "icon"=>"flaticon-023-flask",
+                "icon_id"=>1,
                 "title"=>"Get In The Labbbb",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-011-compass",
+                "icon_id"=>2,
                 "title"=>"Projects Online",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-037-idea",
+                "icon_id"=>3,
                 "title"=>"Smart Marketing",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-039-vector",
+                "icon_id"=>4,
                 "title"=>"Social Media",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-036-brainstorming",
+                "icon_id"=>5,
                 "title"=>"Brainstorming",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-026-search",
+                "icon_id"=>6,
                 "title"=>"Documented",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],
             [
-                "icon"=>"flaticon-018-laptop-1",
+                "icon_id"=>7,
                 "title"=>"Responsive",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],[
-                "icon"=>"flaticon-043-sketch",
+                "icon_id"=>8,
                 "title"=>"Retina Ready",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()
             ],[
-                "icon"=>"flaticon-012-cube",
+                "icon_id"=>9,
                 "title"=>"Ultra Modern",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..",
                 "created_at"=>now()

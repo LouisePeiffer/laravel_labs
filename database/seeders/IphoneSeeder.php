@@ -16,32 +16,32 @@ class IphoneSeeder extends Seeder
     {
         DB::table('iphones')->insert([
             [
-                "icon"=>"flaticon-002-caliper",
+                "icon_id"=>1,
                 "title"=>"Get in the labou",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-019-coffee-cup",
+                "icon_id"=>2,
                 "title"=>"Projects Onlineee",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-020-creativity",
+                "icon_id"=>3,
                 "title"=>"Smart Marketing",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-037-idea",
+                "icon_id"=>4,
                 "title"=>"Get in the labii",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-025-imagination",
+                "icon_id"=>5,
                 "title"=>"Project onlinou",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-008-team",
+                "icon_id"=>6,
                 "title"=>"Smart Marketou",
                 "text"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],

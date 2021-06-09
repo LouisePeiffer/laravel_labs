@@ -24,7 +24,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view();
+        $services = Service::all();
+        return view('back.service.addService', compact('services'));
     }
 
     /**
@@ -36,18 +37,18 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            "icon" =>["required"],
+            "icon_id" =>["required"],
             "title" =>["required"],
             "text" =>["required"],
         ]);
 
         $service = new Service();
-        $service->icon = $request->icone;
+        $service->icon_id = $request->icon_id;
         $service->title = $request->title;
         $service->text = $request->text;
         $service->save();
 
-        return redirect()->with('success', 'Services enregistrés');
+        return redirect()->route('back.service')->with('success', 'Services enregistrés');
     }
 
     /**
@@ -69,7 +70,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view();
+        $services = Service::all();
+        return view('back.service.editService', compact('service', 'services'));
     }
 
     /**
@@ -82,16 +84,16 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         request()->validate([
-            "icon"=>["required"],
+            "icon_id"=>["required"],
             "title"=>["required"],
             "text"=>["required"],
         ]);
 
-        $service->icon = $request->icon;
+        $service->icon_id = $request->icon_id;
         $service->title = $request->title;
         $service->text = $request->text;
         $service->save();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.service')->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -103,6 +105,6 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.service')->with('success', 'Modifications enregistrées');
     }
 }

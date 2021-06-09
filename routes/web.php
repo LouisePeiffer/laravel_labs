@@ -10,6 +10,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IphoneController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NewsletterController;
@@ -20,7 +21,9 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
+use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,59 +40,82 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-// ---------FRONT---------
+// ----------------------------------FRONT----------------------------------
+
+// ---------- PAGES ----------
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/services', [FrontController::class, 'services'])->name('services');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 // Route::get('/blogpost', [FrontController::class, 'blogpost'])->name('blogpost');
 
+// ---------- NEWSLETTER ----------
+Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterstore');
+// ---------- MAIL CONTACT ----------
+Route::post('/mail/store', [MailController::class, 'store'])->name('mailstore');
+// --------- COMMENT --------------
+Route::post('/comment/store/{id}', [CommentController::class, 'store'])->name('store.comment');
 // SHOW BLOG
 Route::get('/blog/show/{id}', [FrontController::class, 'blogpost'])->name('show.blog');
 // SEARCH BLOG
 Route::get('/blog/search', [FrontController::class, 'search'])->name('search.blog');
 
-// ---------- BACK ----------
-// Route::get('/admin', [BackController::class, 'admin'])->name('admin');
+
+
+
+
+
+
+
+// ---------------------------------- BACK ----------------------------------
 Route::get('admin/dashboard', [BackController::class, 'dashboard'])->name('back.dashboard');
-Route::get('admin/profil', [BackController::class, 'profil'])->name('back.profil');
+// Route::get('admin/profil', [BackController::class, 'profil'])->name('back.profil');
 Route::get('admin/general', [BackController::class, 'general'])->name('back.general');
+Route::get('admin/discover', [BackController::class, 'discover'])->name('back.discover');
 Route::get('admin/service', [BackController::class, 'service'])->name('back.service');
 Route::get('admin/blog', [BackController::class, 'blog'])->name('back.blog');
+// Backblade
+// Route::get('admin/', [BackController::class, 'backblade'])->name('back.layout');
+
+// ---------- USER ----------
+// Edit
+Route::get('edit/user/{user}', [UserController::class, 'edit'])->name('edit.user');
+Route::put('update/user/{user}', [UserController::class, 'update'])->name('update.user');
+// Delete
+Route::delete('delete/user/{user}', [UserController::class, 'destroy'])->name('delete.user');
 
 
-// ---------- NEWSLETTER ----------
-Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterstore');
-
-// ---------- MAIL CONTACT ----------
-Route::post('/mail/store', [MailController::class, 'store'])->name('mailstore');
-
-
-
-// --------- COMMENT --------------
-Route::post('/comment/store/{id}', [CommentController::class, 'store'])->name('store.comment');
-
-
-// ---------DASHBOARD---------
-Route::get('/dashboard', function () {
-    return view('back.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
 
 
 //  ------------------------------------ CRUDS ------------------------------------
 
 // ---------------HOME---------------
+// LOGO
+// Edit
+Route::get('edit/logo/{logo}', [LogoController::class, 'edit'])->name('edit.logo');
+Route::put('update/logo/{logo}', [LogoController::class, 'update'])->name('update.logo');
+// Delete
+Route::delete('delete/logo/{logo}', [LogoController::class, 'destroy'])->name('delete.logo');
+
+// IMAGE
+// Create
+Route::get('create/image', [ImageController::class, 'create'])->name('create.image');
+Route::post('store/image', [ImageController::class, 'store'])->name('store.image');
+// Edit
+Route::get('edit/image/{image}', [ImageController::class, 'edit'])->name('edit.image');
+Route::put('update/image/{image}', [ImageController::class, 'update'])->name('update.image');
+// Delete
+Route::delete('delete/image/{image}', [ImageController::class, 'destroy'])->name('delete.image');
+
 // DISCOVER
 // Edit
-Route::get('edit/discover/{discover}', [DiscoverController::class, 'edit'])->name('edit.discover');
+Route::get('edit/discover/{discover}',[DiscoverController::class, 'edit'])->name('edit.discover');
 Route::put('update/discover/{discover}', [DiscoverController::class, 'update'])->name('update.discover');
 
 // VIDEO
 // Edit
-Route::get('edit/discover/{discover}', [VideoController::class, 'edit'])->name('edit.video');
-Route::put('update/discover/{discover}', [VideoController::class, 'update'])->name('update.video');
+Route::get('edit/video/{video}', [VideoController::class, 'edit'])->name('edit.video');
+Route::put('update/video/{video}', [VideoController::class, 'update'])->name('update.video');
 
 // TESTIMONIALS
 // Create
@@ -176,7 +202,6 @@ Route::get('edit/map/{map}', [MapController::class, 'edit'])->name('edit.map');
 Route::put('update/map/{map}', [MapController::class, 'update'])->name('update.map');
 
 
-// BACK
 // GENRE
 // Create
 Route::get('create/genre', [GenreController::class, 'create'])->name('create.genre');
@@ -226,4 +251,12 @@ Route::get('edit/image/{image}', [ImageController::class, 'edit'])->name('edit.i
 Route::put('update/image/{image}', [ImageController::class, 'update'])->name('update.image');
 // Delete
 Route::delete('delete/image/{image}', [ImageController::class, 'destroy'])->name('delete.image');
+
+
+// ---------DASHBOARD---------
+Route::get('/dashboard', function () {
+    return view('back.dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 

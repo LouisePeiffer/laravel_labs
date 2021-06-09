@@ -57,7 +57,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        return view();
+        return view('back.discover.editVideo', compact('video'));
     }
 
     /**
@@ -76,7 +76,7 @@ class VideoController extends Controller
         $video->link = $request->link;
 
         $video->save();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.discover')->with('success', 'Modifications enregistrées');
     }
 
     /**

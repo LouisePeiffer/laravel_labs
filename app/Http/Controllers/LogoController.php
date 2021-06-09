@@ -58,7 +58,7 @@ class LogoController extends Controller
      */
     public function edit(Logo $logo)
     {
-        return view();
+        return view('back.general.editLogo', compact('logo'));
     }
 
     /**
@@ -76,13 +76,13 @@ class LogoController extends Controller
 
         if ($request->file('name') != null) {
             // STORAGE
-            Storage::disk('public')->delete('img/' . $logo->name);
+            // Storage::disk('public')->delete('img/' . $logo->name);
             $request->file('name')->storePublicly('img/', 'public');
             // DB
             $logo->name = $request->file('name')->hashName();
         }
         $logo->save();
-        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
+        return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -95,7 +95,7 @@ class LogoController extends Controller
     {
         Storage::disk('public')->delete('img/'.$logo->name);
         $logo->delete();
-        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
+        return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
     // public function imgResize(Request $request)
     // {

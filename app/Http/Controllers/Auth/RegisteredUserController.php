@@ -50,8 +50,8 @@ class RegisteredUserController extends Controller
             'img' => 'anonyme.jpg',
             'job_id' => 8,
             'role_id' => 4,
+            'genre' => 3,
             'img' => $request->img,
-
         ]);
 
         event(new Registered($user));

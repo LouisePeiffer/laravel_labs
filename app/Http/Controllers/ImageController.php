@@ -25,7 +25,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view();
+        return view('back.general.addImage');
     }
 
     /**
@@ -40,15 +40,15 @@ class ImageController extends Controller
             "name" => ["required"],
         ]);
         
+        $image = new Image();
         // Storage via input File
         $request->file('name')->storePublicly('img/', 'public');
 
         // DB
-        $portfolio = new Image();
         // $portfolio->image = $request->image;
-        $portfolio->name = $request->file('name')->hashName();
-        $portfolio->save();
-        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
+        $image->name = $request->file('name')->hashName();
+        $image->save();
+        return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -70,7 +70,7 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        return view();
+        return view('back.general.editImage', compact('image'));
     }
 
     /**
@@ -88,13 +88,13 @@ class ImageController extends Controller
 
         if ($request->file('name') != null) {
             // STORAGE
-            Storage::disk('public')->delete('img/' . $image->name);
+            // Storage::disk('public')->delete('img/' . $image->name);
             $request->file('name')->storePublicly('img/', 'public');
             // DB
             $image->name = $request->file('name')->hashName();
         }
         $image->save();
-        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
+        return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
 
     /**
@@ -107,6 +107,6 @@ class ImageController extends Controller
     {
         Storage::disk('public')->delete('img/'.$image->name);
         $image->delete();
-        return redirect()->with('success', 'Vos modifications ont été enregistrées.');
+        return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
 }
