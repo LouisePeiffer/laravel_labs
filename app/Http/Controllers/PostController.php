@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Logo;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\TagPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -51,8 +55,9 @@ class PostController extends Controller
         ]);
 
         $post = new Post();
+        $request->file('img')->storePublicly('img/', 'public');
         $post->title = $request->title;
-        $post->img = $request->img;
+        $post->img = $request->file('img')->hashName();
         $post->text = $request->text;
         $post->category_id = $request->category_id;
         $post->user_id = $request->user_id;
@@ -89,7 +94,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view();
+        $tags = Tag::all();
+        $categories = Category::all();
+        $tagposts = TagPost::all()->where('post_id', $post->id);
+        return view('back.post.editPost', compact('post', 'categories', 'tags', 'tagposts'));
     }
 
     /**
@@ -106,26 +114,36 @@ class PostController extends Controller
             "img" =>["required"],
             "text" =>["required"],
             "category_id" =>["required"],
-            "user_id" =>["required"],
-            "day" =>["required"],
-            "month" =>["required"],
-            "year" =>["required"],
-            "validate" =>["required"],
+            // "user_id" =>["required"],
+            // "day" =>["required"],
+            // "month" =>["required"],
+            // "year" =>["required"],
+            // "validate" =>["required"],
         ]);
 
         $post->title = $request->title;
-        $post->img = $request->img;
+        $request->file('img')->storePublicly('img/', 'public');
+        $post->img = $request->file('img')->hashName();
         $post->text = $request->text;
         $post->category_id = $request->category_id;
-        $post->user_id = $request->user_id;
-        $post->day = $request->day;
-        $post->month = $request->month;
-        $post->year = $request->year;
-        $post->validate = $request->validate;
+        $post->user_id = Auth::user()->id;
+        $post->day = date("d");
+        $post->month = date("M");
+        $post->year = date("Y");
+        $post->validate = 0;
 
         $post->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        DB::table('tagposts')->where('post_id',$post->id)->delete();
+
+        foreach ($request->input('taglist')as $value) {
+            $tag = new TagPost();
+            $tag->post_id = $post->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+
+        return redirect()->route('back.post')->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -136,7 +154,22 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $tagposts = TagPost::where('post_id', $post->id)->get();
+        foreach ($tagposts as $tagpost){
+            $tagpost->delete();
+        }
+
+        $comments = Comment::where('post_id', $post->id)->get();
+        foreach ($comments as $comment){
+            $comment->delete();
+        }
+
+
         $post->delete();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.post')->with('success', 'Modifications enregistrées');
+    }
+
+    public function softdelete () {
+        
     }
 }

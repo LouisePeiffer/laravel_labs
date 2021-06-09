@@ -88,7 +88,7 @@ class TitleController extends Controller
 
         $title->save();
 
-        return redirect()->route('back.discover')->with('success', 'Modifications enregistrées');
+        return redirect()->back()->with('success', 'Modifications enregistrées');
     }
 
     /**

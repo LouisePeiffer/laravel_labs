@@ -28,7 +28,7 @@
 										<a href="">{{$post->comment->count()}} Comments</a>
 									@endif
 								</div>
-								<p>{{$post->text}}</p>
+								<p>{{Str::limit($post->text, 200, '...')}}</p>
 								<a href="{{route('show.blog', $post->id)}}" class="read-more">Read More</a>
 							</div>
 						</div>

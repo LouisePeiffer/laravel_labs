@@ -10,7 +10,7 @@
                     @endphp
             </h2>
         </div>
-        <div class="row">
+        <div class="row" id="serviceSection">
             @foreach ($services9recent->reverse() as $service)
                 <!-- single service -->
                 <div class="col-md-4 col-sm-6">

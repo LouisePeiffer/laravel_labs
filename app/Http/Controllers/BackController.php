@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Discover;
 use App\Models\Image;
 use App\Models\Logo;
+use App\Models\Post;
 use App\Models\Service;
+use App\Models\Subject;
+use App\Models\Tag;
+use App\Models\TagPost;
+use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -41,4 +47,23 @@ class BackController extends Controller
     //     $logo = Logo::all();
     //     return view('layouts.back', compact('logo'));
     // }
+    public function testimonial () {
+        $testimonials = Testimonial::all();
+        $titles = Title::all();
+        return view('back.testimonial.testimonial', compact('testimonials','titles'));
+    }
+    public function team () {
+        $titles = Title::all();
+        return view('back.team.team', compact('titles'));
+    }
+    public function post () {
+        $posts = Post::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('back.post.post', compact('posts', 'categories','tags'));
+    }
+    public function contact () {
+        $subjects = Subject::all();
+        return view('back.contact.contact', compact('subjects'));
+    }
 }

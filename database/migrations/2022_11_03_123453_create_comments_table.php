@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->string('day');
             $table->string('month');
             $table->string('year');
-            $table->foreignId('post_id')->nullable()->constrained();
+            $table->foreignId('post_id')->nullable()->constrained()->OnDelete('cascade');
             $table->boolean('validate');
             $table->timestamps();
         });

@@ -25,8 +25,8 @@ class FrontController extends Controller
     //  --------- HOME ---------
     public function index () {
         $video = Video::find(1); 
-        $services3 = Service::all()->random(3);
-        $services9 = Service::all()->random(9);
+        $services3 = Service::inRandomOrder()->limit(3)->get();
+        $services9 = Service::inRandomOrder()->limit(9)->get();
         $discovers = Discover::all();
         $images = Image::all();
         $logos = Logo::find(1);

@@ -47,7 +47,7 @@
                 @endforeach
             </div>
             <div class="text-center mt60">
-                <a href="" class="site-btn">Browse</a>
+                <a href="#testimonialSection" class="site-btn">Browse</a>
             </div>
             <!-- popup video -->
             <div class="intro-video">

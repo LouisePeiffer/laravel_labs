@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TagPost extends Model
 {
     use HasFactory;
-    protected $table = "tagpost";
+    protected $table = "tagposts";
 }

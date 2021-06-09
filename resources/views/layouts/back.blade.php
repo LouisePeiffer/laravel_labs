@@ -19,13 +19,16 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light" id="logo"><img src="/img/big-logo.png" alt="" width="89px"></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('edit.user', Auth::id())}}">Profil</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}"><i class="flaticon-036-brainstorming"></i> Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('edit.user', Auth::id())}}"><i class="flaticon-037-idea"></i> Profil</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}">Images</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.discover')}}">Discover</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.service')}}">Services</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.blog')}}">Blog</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Contact</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.testimonial')}}">Testimonials</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.team')}}">Team</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.softdelete')}}">Soft Delete</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.contact')}}">Contact</a>
                 </div>
             </div>
             <!-- Page content wrapper-->

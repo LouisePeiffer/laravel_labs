@@ -74,6 +74,11 @@ Route::get('admin/general', [BackController::class, 'general'])->name('back.gene
 Route::get('admin/discover', [BackController::class, 'discover'])->name('back.discover');
 Route::get('admin/service', [BackController::class, 'service'])->name('back.service');
 Route::get('admin/blog', [BackController::class, 'blog'])->name('back.blog');
+Route::get('admin/testimonial', [BackController::class, 'testimonial'])->name('back.testimonial');
+Route::get('admin/team', [BackController::class, 'team'])->name('back.team');
+Route::get('admin/post', [BackController::class, 'post'])->name('back.post');
+Route::get('admin/contact', [BackController::class, 'contact'])->name('back.contact');
+Route::get('admin/softdelete', [PostController::class, 'softdelete'])->name('back.softdelete');
 // Backblade
 // Route::get('admin/', [BackController::class, 'backblade'])->name('back.layout');
 

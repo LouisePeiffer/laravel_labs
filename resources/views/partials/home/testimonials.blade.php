@@ -1,7 +1,7 @@
 	<!-- Testimonial section -->
 	<div class="testimonial-section pb100">
 		<div class="test-overlay"></div>
-		<div class="container">
+		<div class="container" id="testimonialSection">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<div class="section-title left">

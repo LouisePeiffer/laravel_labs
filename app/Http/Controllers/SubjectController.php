@@ -24,7 +24,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        return view();
+        return view('back.contact.addSubject');
     }
 
     /**
@@ -45,7 +45,7 @@ class SubjectController extends Controller
 
         $subject->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.contact')->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -100,6 +100,6 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         $subject->delete();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.contact')->with('success', 'Modifications enregistrées');
     }
 }
