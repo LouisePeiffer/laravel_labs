@@ -3,25 +3,28 @@
 @section('content')
     @include('layouts.flash')
     <div class="card m-5 shadow p-3 mb-5 bg-white rounded">
-        <h5 class="card-header mb-3">Les articles : </h5>
-        @foreach ($posts as $post)
-            <div class="card p-3 m-3 shadow">
-                <h3>{{$post->title}}</h3>
-                <img src="../img/{{$post->img}}" alt="" width="400px">
-                <p>{{$post->text}}</p>
-                <p>{{$post->category->category}}</p>
-                <p>{{$post->user->name}}</p>
-                <div class="d-flex">
-                    <a href="{{route('edit.post', $post)}}" class="btn btn-success">Edit</a>
-                    <form method="POST" action="{{route('delete.post', $post)}}" >
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
+        <div class="card m-5">
+            <h5 class="card-header mb-3">Les articles : </h5>
+            @foreach ($posts as $post)
+                <div class="card p-3 m-3 shadow">
+                    <h3>{{$post->title}}</h3>
+                    <img src="../img/{{$post->img}}" alt="" width="400px">
+                    <p>{{$post->text}}</p>
+                    <p>{{$post->category->category}}</p>
+                    <p>{{$post->user->name}}</p>
+                    <div class="d-flex">
+                        <a href="{{route('edit.post', $post)}}" class="btn btn-success">Edit</a>
+                        <form method="POST" action="{{route('delete.post', $post)}}" >
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-        <div>
+            @endforeach
+            <a href="{{route('create.post')}}" class="btn btn-primary m-3">Add Post</a>
+        </div>
+        <div class="card m-5">
             <h5 class="card-header mb-3">Les catégories : </h5>
             <div class="card p-3 m-3 shadow">
                 @foreach ($categories as $category)
@@ -34,10 +37,10 @@
                         </form>
                     </div>
                 @endforeach
-                <a href="" class="btn btn-primary">Add Category</a>
+                <a href="{{route('create.category')}}" class="btn btn-primary">Add Category</a>
             </div>
         </div>
-        <div>
+        <div class="card m-5">
             <h5 class="card-header mb-3">Les tags : </h5>
             <div class="card p-3 m-3 shadow">
                 @foreach ($tags as $tag)
@@ -50,7 +53,7 @@
                         </form>
                     </div>
                 @endforeach
-                <a href="" class="btn btn-primary">Add Tag</a>
+                <a href="{{route('create.tag')}}" class="btn btn-primary">Add Tag</a>
             </div>
         </div>
     </div>

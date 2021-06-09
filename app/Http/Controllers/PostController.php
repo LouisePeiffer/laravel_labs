@@ -31,7 +31,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view();
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('back.post.addPost', compact('categories','tags'));
     }
 
     /**
@@ -46,12 +48,12 @@ class PostController extends Controller
             "title" =>["required"],
             "img" =>["required"],
             "text" =>["required"],
-            "category_id" =>["required"],
-            "user_id" =>["required"],
-            "day" =>["required"],
-            "month" =>["required"],
-            "year" =>["required"],
-            "validate" =>["required"],
+            // "category_id" =>["required"],
+            // "user_id" =>["required"],
+            // "day" =>["required"],
+            // "month" =>["required"],
+            // "year" =>["required"],
+            // "validate" =>["required"],
         ]);
 
         $post = new Post();
@@ -60,15 +62,22 @@ class PostController extends Controller
         $post->img = $request->file('img')->hashName();
         $post->text = $request->text;
         $post->category_id = $request->category_id;
-        $post->user_id = $request->user_id;
-        $post->day = $request->day;
-        $post->month = $request->month;
-        $post->year = $request->year;
-        $post->validate = $request->validate;
+        $post->user_id = Auth::user()->id;
+        $post->day = date("d");
+        $post->month = date("M");
+        $post->year = date("Y");
+        $post->validate = 0;
 
         $post->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        foreach ($request->input('taglist')as $value) {
+            $tag = new TagPost();
+            $tag->post_id = $post->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+
+        return redirect()->route('back.post')->with('success', 'Modifications enregistrées');
     }
 
     /**

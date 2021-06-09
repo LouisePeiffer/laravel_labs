@@ -24,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view();
+        return view('back.post.addTag');
     }
 
     /**
@@ -44,7 +44,7 @@ class TagController extends Controller
         $tag->tag = $request->tag;
         $tag->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->route('back.post')->with('success', 'Modifications enregistrées');
     }
 
     /**
