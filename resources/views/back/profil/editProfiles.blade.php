@@ -6,7 +6,7 @@
         <div class="card-body">
             <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
-            <form action="{{route('update.user', $user)}}" method="POST" enctype="multipart/form-data"> 
+            <form action="{{route('update.profile', $profile)}}" method="POST" enctype="multipart/form-data"> 
                 @csrf
                 @method('PUT')
                 {{-- Firstname --}}
@@ -44,6 +44,21 @@
                     <label for="img">Image: </label>
                     <input type="file" name="img" id="img" value="{{$user->img}}" class="form-control @error('img') is-invalid @enderror"> 
                     @error('img')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+                {{-- Role --}}
+                <div class="form-group mb-4">
+                    <label for="role_id">Role : </label>
+                    <select name="role_id" id="role_id" class="form-control @error('role_id') is-invalid @enderror">
+                        <option value="">---- Choose a role ----</option>
+                        @foreach ($roles as $role)
+                            <option value="{{$role->id}}">{{$role->role}}</option>
+                        @endforeach
+                    </select>
+                    @error('role_id')
                         <span class="invalid-feedback">
                             <strong>{{$message}}</strong>
                         </span>

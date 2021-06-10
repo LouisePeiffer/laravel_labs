@@ -30,7 +30,7 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.team')}}">Team</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.contact')}}">Contact</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}">Validate Post</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}">Validate</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}">Corbeille</a>
                     @endadmin
 

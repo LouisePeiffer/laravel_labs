@@ -74,14 +74,16 @@ class RegisteredUserController extends Controller
         $user->genre_id = $request->genre_id;
         $user->role_id = 4;
         $user->job_id = $request->job_id;
+        $user->validate = 0;
         $user->save();
 
         event(new Registered($user));
 
         Mail::to($request->email)->send(new WelcomeSender($request));
         
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('home');
     }
 }

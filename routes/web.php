@@ -16,6 +16,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubjectController;
@@ -80,6 +81,7 @@ Route::get('admin/testimonial', [BackController::class, 'testimonial'])->name('b
 Route::get('admin/team', [BackController::class, 'team'])->name('back.team');
 Route::get('admin/post', [BackController::class, 'post'])->name('back.post');
 Route::get('admin/contact', [BackController::class, 'contact'])->name('back.contact');
+Route::get('admin/profiles', [BackController::class, 'profiles'])->name('back.profiles');
 // Route::get('admin/softdelete', [PostController::class, 'softdelete'])->name('back.softdelete');
 // Backblade
 // Route::get('admin/', [BackController::class, 'backblade'])->name('back.layout');
@@ -91,7 +93,12 @@ Route::put('update/user/{user}', [UserController::class, 'update'])->name('updat
 // Delete
 Route::delete('delete/user/{user}', [UserController::class, 'destroy'])->name('delete.user');
 
-
+// // PROFILE
+// // Edit
+// Route::get('edit/profile/{profile}', [ProfileController::class, 'edit'])->name('edit.profile');
+// Route::put('update/profile/{profile}', [ProfileController::class, 'update'])->name('update.profile');
+// // Delete
+// Route::delete('delete/profile/{profile}', [ProfileController::class, 'destroy'])->name('delete.profile');
 
 
 //  ------------------------------------ CRUDS ------------------------------------
@@ -270,6 +277,8 @@ Route::get('/dashboard', function () {
 Route::get('/admin/validate', [ValidationController::class, 'index'])->name('admin.validate');
 // Validate Post
 Route::put('/admin/validate/post/{id}', [ValidationController::class, 'updatePost'])->name('validate.post');
+// Validate User
+Route::put('/admin/validate/user/{id}', [ValidationController::class, 'updateUser'])->name('validate.user');
 
 // DELETE - CORBEILLE
 // Index

@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
                 "email" => "admin@admin.com",
                 "password" => Hash::make('adminadmin'),
                 "description" => "Je suis admin",
+                "validate"=>1,
             ],
             [
                 "firstname" => "Webmaster",
@@ -41,6 +42,7 @@ class UserSeeder extends Seeder
                 "email" => "webmaster@webmaster.com",
                 "password" => Hash::make('webmasterwebmaster'),
                 "description" => "Je suis webmaster",
+                "validate"=>1,
             ],
             [
                 "firstname" => "Editeur",
@@ -54,6 +56,7 @@ class UserSeeder extends Seeder
                 "email" => "editer@editer.com",
                 "password" => Hash::make('editerediter'),
                 "description" => "Je suis editeur",
+                "validate"=>1,
             ],
             [
                 "firstname" => "Membre",
@@ -67,6 +70,7 @@ class UserSeeder extends Seeder
                 "email" => "membre@membre.com",
                 "password" => Hash::make('membremembre'),
                 "description" => "Je suis membre",
+                "validate"=>0,
             ],
         ]);
     }

@@ -1,9 +1,9 @@
 @component('mail::message')
 # Introduction
 
-Bienvenue chez Labs, {{$mail->email}}!
+Il y a un nouveau poste! 
 
-Votre compte est en attente de validation.
+Jettez-y un coup d'oeil sur labs.com 
 
 {{-- @component('mail::button', ['url' => ''])
 Button Text

@@ -3,7 +3,9 @@
 
 Bienvenue chez Labs, {{$mail->email}}!
 
-Votre compte est en attente de validation.
+Votre compte a été validé. 
+
+Pour vous connecter, utilisez ce token dans votre URL : /qwerty
 
 {{-- @component('mail::button', ['url' => ''])
 Button Text

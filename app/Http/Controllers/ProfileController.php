@@ -8,13 +8,13 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     public function edit (User $user) {
         $roles = Role::all();
         $jobs = Job::all();
         $genres = Genre::all();
-        return view('back.profil.editProfil', compact('roles', 'jobs','genres', 'user'));
+        return view('back.profil.editProfiles', compact('roles', 'jobs','genres', 'user'));
     }
     public function update (Request $request, User $user) {
         request()->validate([

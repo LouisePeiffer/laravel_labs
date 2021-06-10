@@ -13,6 +13,7 @@ use App\Models\Tag;
 use App\Models\TagPost;
 use App\Models\Testimonial;
 use App\Models\Title;
+use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -65,5 +66,9 @@ class BackController extends Controller
     public function contact () {
         $subjects = Subject::all();
         return view('back.contact.contact', compact('subjects'));
+    }
+    public function profiles () {
+        $profiles = User::where('role_id', '=', '4')->get();
+        return view('back.profil.profiles', compact('profiles'));
     }
 }
