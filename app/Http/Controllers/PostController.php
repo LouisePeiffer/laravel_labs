@@ -67,6 +67,7 @@ class PostController extends Controller
         $post->month = date("M");
         $post->year = date("Y");
         $post->validate = 0;
+        $post->trash = 0;
 
         $post->save();
 

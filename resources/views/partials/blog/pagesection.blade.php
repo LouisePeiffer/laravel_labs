@@ -41,7 +41,7 @@
 					</div>
 					{{-- <div class="col-12 d-flex justify-content-center"> --}}
 					<div class="page-pagination">
-						{{ $article->links() }}
+						{{ $article->links('vendor.pagination.default') }}
 					</div>
 				</div>
 				<!-- Sidebar area -->

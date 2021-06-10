@@ -1,8 +1,26 @@
+<style>
+    #liste {
+        color: black;
+    }
+    #link {
+        display: inline-block;
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        color: #0b1033;
+        padding: 6px 10px;
+        margin-right: 5px;
+    }
+    
+
+    .active span {
+        background: #2be6ab;
+    }
+</style>
 @if ($paginator->hasPages())
     <nav>
         <ul class="pagination">
             {{-- Previous Page Link --}}
-            @if ($paginator->onFirstPage())
+            {{-- @if ($paginator->onFirstPage())
                 <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                     <span aria-hidden="true">&lsaquo;</span>
                 </li>
@@ -10,29 +28,29 @@
                 <li>
                     <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
                 </li>
-            @endif
+            @endif --}}
 
             {{-- Pagination Elements --}}
             @foreach ($elements as $element)
                 {{-- "Three Dots" Separator --}}
                 @if (is_string($element))
-                    <li class="disabled" aria-disabled="true"><span>{{ $element }}</span></li>
+                    <li class="disabled" aria-disabled="true" id="listeA"><span id="listeB">{{ $element }}</span></li>
                 @endif
 
                 {{-- Array Of Links --}}
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active" aria-current="page"><span>{{ $page }}</span></li>
+                            <li class="active" aria-current="page"><span id="liste">{{ $page }}</span></li>
                         @else
-                            <li><a href="{{ $url }}">{{ $page }}</a></li>
+                            <li><a href="{{ $url }}" id="link">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif
             @endforeach
 
             {{-- Next Page Link --}}
-            @if ($paginator->hasMorePages())
+            {{-- @if ($paginator->hasMorePages())
                 <li>
                     <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
                 </li>
@@ -40,7 +58,7 @@
                 <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                     <span aria-hidden="true">&rsaquo;</span>
                 </li>
-            @endif
+            @endif --}}
         </ul>
     </nav>
 @endif

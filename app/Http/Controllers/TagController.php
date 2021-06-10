@@ -86,7 +86,7 @@ class TagController extends Controller
         $tag->tag = $request->tag;
         $tag->save();
 
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->back()->with('success', 'Modifications enregistrées');
     }
 
     /**
@@ -98,6 +98,6 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
-        return redirect()->with('success', 'Modifications enregistrées');
+        return redirect()->back()->with('success', 'Modifications enregistrées');
     }
 }

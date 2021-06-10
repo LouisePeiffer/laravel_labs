@@ -27,6 +27,7 @@ class PostSeeder extends Seeder
                 "month"=>date("M"),
                 "year"=>date("Y"),
                 "validate"=>1,
+                "trash"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -41,6 +42,7 @@ class PostSeeder extends Seeder
                 "month"=>date("M"),
                 "year"=>date("Y"),
                 "validate"=>1,
+                "trash"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -55,6 +57,7 @@ class PostSeeder extends Seeder
                 "month"=>date("M"),
                 "year"=>date("Y"),
                 "validate"=>1,
+                "trash"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -69,6 +72,7 @@ class PostSeeder extends Seeder
                 "month"=>date("M"),
                 "year"=>date("Y"),
                 "validate"=>1,
+                "trash"=>0,
                 "created_at"=>now(),
             ]
         ]);

@@ -25,8 +25,10 @@ class CreatePostsTable extends Migration
             $table->string('day');
             $table->string('month');
             $table->string('year');
+
             $table->boolean('validate');
-            // $table->boolean('trash');
+            $table->boolean('trash');
+
             $table->timestamps();
         });
     }

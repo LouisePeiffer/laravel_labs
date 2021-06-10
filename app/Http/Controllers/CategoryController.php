@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -99,7 +100,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete;
-        return redirect()->with('success', 'Modifications enregistrées');
+        $categories = Post::where('category_id', $category->id)->get();
+        foreach ($categories as $category) {
+            $category->category_id = 4;
+            $category->save();
+        }
+
+        $category->delete();
+        return redirect()->back()->with('success', 'Catégorie supprimée');
     }
 }

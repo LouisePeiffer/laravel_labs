@@ -24,6 +24,9 @@ class CategorySeeder extends Seeder
             [
                 "category" => "Music and artists"
             ],
+            [
+                "category" => "vide"
+            ],
         ]);
     }
 }

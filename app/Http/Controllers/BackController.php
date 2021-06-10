@@ -57,8 +57,8 @@ class BackController extends Controller
         return view('back.team.team', compact('titles'));
     }
     public function post () {
-        $posts = Post::all();
-        $categories = Category::all();
+        $posts = Post::all()->where('trash', 0)->where('validate',1);
+        $categories = Category::where('id', '!=', 4)->get();
         $tags = Tag::all();
         return view('back.post.post', compact('posts', 'categories','tags'));
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CorbeilleController;
 use App\Http\Controllers\DiscoverController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GenreController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ValidationController;
 use App\Http\Controllers\VideoController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
@@ -78,7 +80,7 @@ Route::get('admin/testimonial', [BackController::class, 'testimonial'])->name('b
 Route::get('admin/team', [BackController::class, 'team'])->name('back.team');
 Route::get('admin/post', [BackController::class, 'post'])->name('back.post');
 Route::get('admin/contact', [BackController::class, 'contact'])->name('back.contact');
-Route::get('admin/softdelete', [PostController::class, 'softdelete'])->name('back.softdelete');
+// Route::get('admin/softdelete', [PostController::class, 'softdelete'])->name('back.softdelete');
 // Backblade
 // Route::get('admin/', [BackController::class, 'backblade'])->name('back.layout');
 
@@ -262,6 +264,27 @@ Route::delete('delete/image/{image}', [ImageController::class, 'destroy'])->name
 Route::get('/dashboard', function () {
     return view('back.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+//  VALIDATE
+// Index
+Route::get('/admin/validate', [ValidationController::class, 'index'])->name('admin.validate');
+// Validate Post
+Route::put('/admin/validate/post/{id}', [ValidationController::class, 'updatePost'])->name('validate.post');
+
+// DELETE - CORBEILLE
+// Index
+Route::get('/admin/corbeille', [CorbeilleController::class, 'index'])->name('admin.corbeille');
+// Post corbeille
+Route::put('/admin/corbeille/post/{id}', [CorbeilleController::class, 'corbeillePost'])->name('corbeille.post');
+// Recup post
+Route::put('/admin/recup/post/{id}', [CorbeilleController::class, 'recupPost'])->name('recup.post');
+// Delete Post For Real
+Route::delete('/admin/corbeille/post/{id}/delete', [CorbeilleController::class, 'deletePostForReal'])->name('delete.post.forreal');
+
+// COMMENTAIRE
+
+
+
 
 require __DIR__.'/auth.php';
 

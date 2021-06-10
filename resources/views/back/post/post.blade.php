@@ -14,10 +14,10 @@
                     <p>{{$post->user->name}}</p>
                     <div class="d-flex">
                         <a href="{{route('edit.post', $post)}}" class="btn btn-success">Edit</a>
-                        <form method="POST" action="{{route('delete.post', $post)}}" >
+                        <form method="POST" action="{{route('corbeille.post', $post)}}" >
                             @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            @method('PUT')
+                            <button class="btn btn-warning" type="submit">Corbeille</button>
                         </form>
                     </div>
                 </div>
