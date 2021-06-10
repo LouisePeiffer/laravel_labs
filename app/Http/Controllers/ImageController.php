@@ -47,6 +47,9 @@ class ImageController extends Controller
         // DB
         // $portfolio->image = $request->image;
         $image->name = $request->file('name')->hashName();
+
+        $image->active = 0;
+
         $image->save();
         return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
     }
@@ -108,5 +111,19 @@ class ImageController extends Controller
         Storage::disk('public')->delete('img/'.$image->name);
         $image->delete();
         return redirect()->route('back.general')->with('success', 'Vos modifications ont été enregistrées.');
+    }
+
+    public function firstImage(Image $image) {
+
+        $pictures = Image::all();
+        foreach ($pictures as $picture) {
+            $picture->active = 0;
+            $picture->save();
+        }
+
+        $image->active = 1;
+        $image->save();
+
+        return redirect()->route('back.general')->with('success', "Première image enregistrée");
     }
 }

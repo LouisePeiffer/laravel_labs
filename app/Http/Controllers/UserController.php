@@ -43,6 +43,7 @@ class UserController extends Controller
         return redirect()->route('back.dashboard')->with('success', 'Modifications enregistrées');
     }
     public function destroy (User $user) {
+        $this->authorize('admin');
         $user->delete();
         return redirect()->back()->with('success', 'Modifications enregistrées');
     }

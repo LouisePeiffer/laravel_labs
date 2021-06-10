@@ -8,6 +8,10 @@
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
+			@forelse ($imageactive as $image)
+				<div class="item  hero-item" data-bg="img/{{$image->name}}"></div>
+			@empty
+			@endforelse
 			@foreach ($images as $image)	
 				<div class="item  hero-item" data-bg="img/{{$image->name}}"></div>
 			@endforeach

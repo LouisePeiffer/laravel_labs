@@ -88,8 +88,8 @@ Route::get('admin/contact', [BackController::class, 'contact'])->middleware(['ad
 
 // ---------- USER ----------
 // Edit
-Route::get('edit/user/{user}', [UserController::class, 'edit'])->middleware(['admin'])->name('edit.user');
-Route::put('update/user/{user}', [UserController::class, 'update'])->middleware(['admin'])->name('update.user');
+Route::get('edit/user/{user}', [UserController::class, 'edit'])->name('edit.user');
+Route::put('update/user/{user}', [UserController::class, 'update'])->name('update.user');
 // Delete
 Route::delete('delete/user/{user}/delete', [UserController::class, 'destroy'])->middleware(['admin'])->name('delete.user');
 
@@ -266,6 +266,8 @@ Route::put('update/image/{image}', [ImageController::class, 'update'])->middlewa
 // Delete
 Route::delete('delete/image/{image}', [ImageController::class, 'destroy'])->middleware(['admin'])->name('delete.image');
 
+// Image en first dans le carousel
+Route::put('/admin/image/{image}/firstimage', [ImageController::class, 'firstImage'])->name('firstImage');
 
 // ---------DASHBOARD---------
 Route::get('/dashboard', function () {

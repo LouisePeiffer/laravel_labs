@@ -14,11 +14,13 @@
                     <p>{{$post->user->name}}</p>
                     <div class="d-flex">
                         <a href="{{route('edit.post', $post)}}" class="btn btn-success">Edit</a>
+                        @can('webmaster')
                         <form method="POST" action="{{route('corbeille.post', $post)}}" >
                             @csrf
                             @method('PUT')
                             <button class="btn btn-warning" type="submit">Corbeille</button>
                         </form>
+                        @endcan
                     </div>
                 </div>
             @endforeach

@@ -16,10 +16,12 @@ class ImageSeeder extends Seeder
     {
         DB::table('images')->insert([
             [
-                "name"=>"01.jpg"
+                "name"=>"01.jpg",
+                "active"=>0,
             ],
             [
-                "name"=>"02.jpg"
+                "name"=>"02.jpg",
+                "active"=>0,
             ],
         ]);
     }

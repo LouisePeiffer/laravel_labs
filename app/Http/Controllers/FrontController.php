@@ -29,6 +29,7 @@ class FrontController extends Controller
         $services9 = Service::inRandomOrder()->limit(9)->get();
         $discovers = Discover::all();
         $images = Image::all();
+        $imageactive = Image::where('active', 1)->get();
         $logos = Logo::find(1);
         $contacts = Contact::find(1);
         $titles = Title::all();
@@ -40,7 +41,7 @@ class FrontController extends Controller
         $team = User::where('job_id', '>', 1)->get();
         $randomUser = $team->random(2);
 
-        return view('home', compact('video', 'services3', 'services9', 'discovers', 'images','logos', 'contacts', 'titles','testimonials','subjects','users','ceo', 'randomUser'));
+        return view('home', compact('video', 'services3', 'services9', 'discovers', 'images','logos', 'contacts', 'titles','testimonials','subjects','users','ceo', 'randomUser','imageactive'));
     }
 
     // --------- SERVICES ---------
