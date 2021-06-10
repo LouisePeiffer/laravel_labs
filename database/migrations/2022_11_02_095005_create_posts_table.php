@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('img');
             $table->text('text');
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->constrained()->OnDelete('cascade');
             // $table->foreignId('tag_id')->constrained();
             $table->foreignId('user_id')->constrained();
             // $table->foreignId('comment_id')->nullable()->constrained();
@@ -26,7 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('month');
             $table->string('year');
             $table->boolean('validate');
-            $table->boolean('trash');
+            // $table->boolean('trash');
             $table->timestamps();
         });
     }

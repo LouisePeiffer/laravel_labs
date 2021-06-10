@@ -21,6 +21,8 @@
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}"><i class="flaticon-036-brainstorming"></i> Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('edit.user', Auth::id())}}"><i class="flaticon-037-idea"></i> Profil</a>
+                    {{-- Ce que l'ADMIN peut faire (tout) --}}
+                    @admin
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}">Images</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.discover')}}">Discover</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.service')}}">Services</a>
@@ -29,6 +31,14 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.softdelete')}}">Soft Delete</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.contact')}}">Contact</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="">Validate</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="">Corbeille</a>
+                    @endadmin
+
+                    {{-- Ce que l'EDITEUR peut faire (blog) --}}
+                    @editer
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
+                    @endediter
                 </div>
             </div>
             <!-- Page content wrapper-->

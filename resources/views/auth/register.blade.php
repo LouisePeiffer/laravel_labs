@@ -33,6 +33,30 @@
                 <x-input id="age" class="block mt-1 w-full" type="text" name="age" :value="old('age')" required autofocus />
             </div>
 
+            <!-- Genre -->
+            <div>
+                <x-label for="genre_id" :value="__('Genre')" />
+
+                <select name="genre_id" id="genre_id" class="block mt-1 w-full" :value="old('genre_id')">
+                    <option value="">--- Select Genre ----</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{$genre->id}}">{{$genre->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Job -->
+            <div>
+                <x-label for="job_id" :value="__('Job')" />
+
+                <select name="job_id" id="job_id" class="block mt-1 w-full" :value="old('job_id')">
+                    <option value="">--- Select Job ----</option>
+                    @foreach ($jobs as $job)
+                        <option value="{{$job->id}}">{{$job->job}}</option>
+                    @endforeach
+                </select>
+            </div>
+
 
             <!-- Email Address -->
             <div class="mt-4">
