@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Icon;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -70,8 +71,9 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        $icons = Icon::all();
         $services = Service::all();
-        return view('back.service.editService', compact('service', 'services'));
+        return view('back.service.editService', compact('service', 'services', 'icons'));
     }
 
     /**

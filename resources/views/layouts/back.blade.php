@@ -20,7 +20,9 @@
                 <div class="sidebar-heading border-bottom bg-light" id="logo"><img src="/img/big-logo.png" alt="" width="89px"></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}"><i class="flaticon-036-brainstorming"></i> Dashboard</a>
+                    @userValidate
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('edit.user', Auth::id())}}"><i class="flaticon-037-idea"></i> Profil</a>
+                    @enduserValidate
                     {{-- Ce que l'ADMIN peut faire (tout) --}}
                     @admin
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}">Images</a>
@@ -38,6 +40,12 @@
                     @editer
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
                     @endediter
+
+                    @webmaster
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}">Validate</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}">Corbeille</a>
+                    @endwebmaster
                 </div>
             </div>
             <!-- Page content wrapper-->

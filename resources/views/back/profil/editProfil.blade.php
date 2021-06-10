@@ -53,9 +53,11 @@
                 <div class="form-group mb-4">
                     <label for="job_id">Job : </label>
                     <select name="job_id" id="job_id" class="form-control @error('job_id') is-invalid @enderror">
-                        <option value="">---- Choose a job ----</option>
+                        <option value="{{$user->job->id}}">{{$user->job->job}}</option>
                         @foreach ($jobs as $job)
+                        @if ($job->id != $user->job_id)
                             <option value="{{$job->id}}">{{$job->job}}</option>
+                        @endif
                         @endforeach
                     </select>
                     @error('job_id')
@@ -68,9 +70,11 @@
                 <div class="form-group mb-4">
                     <label for="genre_id" name="genre_id">Genre : </label>
                     <select name="genre_id" id="genre_id" class="form-control @error('genre_id') is-invalid @enderror">
-                        <option value="">---- Choose a genre ----</option>
+                        <option value="{{$user->genre->id}}">{{$user->genre->name}}</option>
                         @foreach ($genres as $genre)
+                        @if ($genre->id != $user->genre_id)
                             <option value="{{$genre->id}}">{{$genre->name}}</option>
+                        @endif
                         @endforeach
                     </select>
                     @error('genre_id')

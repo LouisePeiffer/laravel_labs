@@ -39,5 +39,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('editer', function () {
             return Auth::user()->role_id == 3;
         });
+        Blade::if('userValidate', function() {
+            return Auth::user()->validate == 1;
+        });
     }
 }

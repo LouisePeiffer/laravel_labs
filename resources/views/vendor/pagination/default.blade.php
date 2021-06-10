@@ -1,4 +1,4 @@
-<style>
+{{-- <style>
     #liste {
         color: black;
     }
@@ -15,10 +15,10 @@
     .active span {
         background: #2be6ab;
     }
-</style>
+</style> --}}
 @if ($paginator->hasPages())
     <nav>
-        <ul class="pagination">
+        <ul class="page-pagination">
             {{-- Previous Page Link --}}
             {{-- @if ($paginator->onFirstPage())
                 <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
@@ -34,16 +34,16 @@
             @foreach ($elements as $element)
                 {{-- "Three Dots" Separator --}}
                 @if (is_string($element))
-                    <li class="disabled" aria-disabled="true" id="listeA"><span id="listeB">{{ $element }}</span></li>
+                    <a class="disabled" aria-disabled="true" id="listeA"><span>{{ $element }}</span></a>
                 @endif
 
                 {{-- Array Of Links --}}
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active" aria-current="page"><span id="liste">{{ $page }}</span></li>
+                            <a class="active" aria-current="page">0{{ $page }}.</a>
                         @else
-                            <li><a href="{{ $url }}" id="link">{{ $page }}</a></li>
+                            <a href="{{ $url }}">0{{ $page }}.</a>
                         @endif
                     @endforeach
                 @endif

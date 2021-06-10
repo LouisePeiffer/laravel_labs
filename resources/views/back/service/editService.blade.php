@@ -10,9 +10,11 @@
             <div class="d-flex flex-column m-3 form-group">
                 <label for="icon_id">Icon</label>
                 <select name="icon_id" id="icon_id" class="form-control @error('icon_id') is-invalid @enderror">
-                    <option value="">---- Choose an icon ----</option>
-                    @foreach ($services as $service)
-                        <option value="{{$service->icon->id}}">{{$service->icon->name}}</option>
+                    <option value="{{$service->icon->name}}">{{$service->icon->name}}</option>
+                    @foreach ($icons as $icon)
+                        @if ($icon->id != $service->icon_id)
+                            <option value="{{$icon->id}}">{{$icon->name}}</option>
+                        @endif
                     @endforeach
                 </select>
                 @error('icon_id')

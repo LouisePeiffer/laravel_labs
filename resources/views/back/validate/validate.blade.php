@@ -15,6 +15,11 @@
                         @method('PUT')
                         <button class="btn btn-success" type="submit">Validate</button>
                     </form>
+                    <form action="{{route('delete.user', $user)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
                 @empty
                     <p>Pas de poste à valider</p>
                 @endforelse
