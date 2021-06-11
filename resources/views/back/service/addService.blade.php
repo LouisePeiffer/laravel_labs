@@ -23,7 +23,7 @@
             {{-- Title --}}
             <div class="d-flex flex-column m-3 form-group">
                 <label for="title">Title</label>
-                <input type="text" name="title" value="{{$service->title}}" class="form-control @error('title') is-invalid @enderror">
+                <input type="text" name="title" value="" class="form-control @error('title') is-invalid @enderror">
                 @error('title')
                         <span class="invalid-feedback">
                             <strong>{{$message}}</strong>
@@ -33,7 +33,7 @@
             {{-- Text --}}
             <div class="d-flex flex-column m-3 form-group">
                 <label for="text">Text</label>
-                <input type="text" name="text" value="{{$service->text}}" class="form-control @error('text') is-invalid @enderror">
+                <input type="text" name="text" value="" class="form-control @error('text') is-invalid @enderror">
                 @error('text')
                         <span class="invalid-feedback">
                             <strong>{{$message}}</strong>

@@ -14,7 +14,7 @@
                     <p>{{$post->user->name}}</p>
                     <div class="d-flex">
                         <a href="{{route('edit.post', $post)}}" class="btn btn-success">Edit</a>
-                        @can('webmaster')
+                        @can('editer')
                         <form method="POST" action="{{route('corbeille.post', $post)}}" >
                             @csrf
                             @method('PUT')

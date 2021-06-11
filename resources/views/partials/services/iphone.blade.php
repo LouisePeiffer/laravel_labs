@@ -1,3 +1,8 @@
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 <!-- features section -->
 <div class="team-section spad">
     <div class="overlay"></div>

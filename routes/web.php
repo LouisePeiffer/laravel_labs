@@ -93,6 +93,11 @@ Route::put('update/user/{user}', [UserController::class, 'update'])->name('updat
 // Delete
 Route::delete('delete/user/{user}/delete', [UserController::class, 'destroy'])->middleware(['admin'])->name('delete.user');
 
+//  USER PAR L'ADMIN
+// Edit
+Route::get('edit/role/{user}', [UserController::class, 'editRole'])->name('edit.role');
+Route::put('update/role/{user}', [UserController::class, 'updateRole'])->name('update.role');
+
 // // PROFILE
 // // Edit
 // Route::get('edit/profile/{profile}', [ProfileController::class, 'edit'])->name('edit.profile');

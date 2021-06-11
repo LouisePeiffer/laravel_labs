@@ -24,6 +24,11 @@
         </nav>
     </header>
     <!-- Header section end -->
+    {{-- <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style> --}}
     @include('partials.home.intro')
     @include('partials.home.about')
     @include('partials.home.testimonials')

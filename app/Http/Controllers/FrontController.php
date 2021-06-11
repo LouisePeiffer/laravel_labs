@@ -78,6 +78,7 @@ class FrontController extends Controller
         $logos = Logo::find(1);
         $article = Post::all();
         $categories = Category::all();
+        // $categories = Category::where('id', $request->id);
         $tags = Tag::all();
         return view('partials.blog.searchblog', compact('articlesearch','logos','article','categories','tags')); 
     }

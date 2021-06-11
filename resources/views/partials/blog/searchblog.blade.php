@@ -2,6 +2,20 @@
 
 @section('content')
     @include('partials.blog.headersearch')
+    <!-- Page header -->
+	<div class="page-top-section">
+		<div class="overlay"></div>
+		<div class="container text-right">
+			<div class="page-info">
+				<h2>Blog</h2>
+				<div class="page-links">
+					<a href="#">Home</a>
+					<span>Blog</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page header end-->
     <!-- page section -->
     <div class="page-section spad">
         <div class="container">
@@ -56,7 +70,7 @@
                             <button class="search-btn"><i class="flaticon-026-search"></i></button>
                         </form>
                     </div>
-                    {{-- <!-- Single widget -->
+                    <!-- Single widget -->
                     <div class="widget-item">
                         <h2 class="widget-title">Categories</h2>
                         <ul>
@@ -73,7 +87,7 @@
                                 <li><a href="">{{$tag->tag}}</a></li>
                             @endforeach
                         </ul>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>

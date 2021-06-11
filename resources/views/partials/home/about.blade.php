@@ -1,3 +1,8 @@
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 <!-- About section -->
 <div class="about-section">
     <div class="overlay"></div>

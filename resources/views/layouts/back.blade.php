@@ -16,7 +16,7 @@
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="border-end " id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light" id="logo"><img src="/img/big-logo.png" alt="" width="89px"></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.dashboard')}}"><i class="flaticon-036-brainstorming"></i> Dashboard</a>
@@ -25,26 +25,26 @@
                     @enduserValidate
                     {{-- Ce que l'ADMIN peut faire (tout) --}}
                     @admin
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}">Images</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.discover')}}">Discover</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.service')}}">Services</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.testimonial')}}">Testimonials</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.team')}}">Team</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.contact')}}">Contact</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}">Validate</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}">Corbeille</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.general')}}"><i class="flaticon-018-laptop-1"></i> Images</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.discover')}}"><i class="flaticon-026-search"></i> Discover</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.service')}}"><i class="flaticon-012-cube"></i> Services</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.testimonial')}}"><i class="flaticon-043-sketch"></i> Testimonials</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.team')}}"><i class="flaticon-036-brainstorming"></i> Team</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}"><i class="flaticon-026-search"></i> Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.contact')}}"><i class="flaticon-037-idea"></i> Contact</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}"><i class="flaticon-039-vector"></i> Validate</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}"><i class="flaticon-018-laptop-1"></i> Corbeille</a>
                     @endadmin
 
                     {{-- Ce que l'EDITEUR peut faire (blog) --}}
                     @editer
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}"><i class="flaticon-026-search"></i>Blog</a>
                     @endediter
 
                     @webmaster
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}">Blog</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}">Validate</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}">Corbeille</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('back.post')}}"><i class="flaticon-026-search"></i>Blog</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.validate')}}"><i class="flaticon-039-vector"></i>Validate</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('admin.corbeille')}}"><i class="flaticon-018-laptop-1"></i>Corbeille</a>
                     @endwebmaster
                 </div>
             </div>

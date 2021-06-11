@@ -10841,15 +10841,27 @@ textarea.form-control-lg {
   min-height: 100vh;
   margin-left: -15rem;
   transition: margin 0.25s ease-out;
+  background-color: #632FB1;
 }
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
+  background-color: #632FB1;
 }
 
 #sidebar-wrapper .list-group {
   width: 15rem;
+}
+
+#sidebar-wrapper .list-group .list-group-item {
+  background-color: #632FB1;
+  color: white;
+}
+
+#sidebar-wrapper .list-group .list-group-item i {
+  font-size: 25px;
+  margin-right: 10px;
 }
 
 #page-content-wrapper {

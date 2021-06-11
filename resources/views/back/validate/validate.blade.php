@@ -3,6 +3,7 @@
 @section('content')
     <div class="card m-5 shadow p-3 mb-5 bg-white rounded">
         {{-- Membres à valider --}}
+        @can('admin')
         <div>
             <h5 class="card-header mb-3">Membres à valider : </h5>
             <div>
@@ -15,6 +16,7 @@
                         @method('PUT')
                         <button class="btn btn-success" type="submit">Validate</button>
                     </form>
+                    <a href="{{route('edit.role', $user)}}" class="btn btn-primary">Edit</a>
                     <form action="{{route('delete.user', $user)}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -25,6 +27,7 @@
                 @endforelse
             </div>
         </div>
+        @endcan
         {{-- Postes à valider --}}
         <div>
             <h5 class="card-header mb-3">Postes à valider : </h5>

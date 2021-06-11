@@ -2,11 +2,8 @@
 # Introduction
 
 Bienvenue, {{$mail->name}}!
-Votre email est : {{$mail->mail}}
+Nous traitons votre demande rapidement.
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}

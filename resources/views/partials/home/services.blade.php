@@ -1,3 +1,8 @@
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
 	<!-- Services section -->
 	<div class="services-section spad">
 		<div class="container">
