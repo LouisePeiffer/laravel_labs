@@ -4,9 +4,9 @@
     <div class="card m-5 shadow p-3 mb-5 bg-white rounded">
         <h5 class="card-header mb-3">Hello contact</h5>
         <p class="fw-bold">Les sujets :</p>
-        <div>
+        <div class="d-flex flex-column  align-items-center">
             @foreach ($subjects as $subject)
-            <div class="d-flex align-items-center card p-3 m-3">
+            <div class="d-flex align-items-center card p-3 m-3" style="width: 200px">
                 <p>{{$subject->subject}}</p>
                 <form method="POST" action="{{route('delete.subject', $subject)}}" class="m-1" >
                     @csrf

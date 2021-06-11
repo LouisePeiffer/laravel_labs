@@ -30,7 +30,7 @@
             <h5 class="card-header mb-3">Les catégories : </h5>
             <div class="card p-3 m-3 shadow">
                 @foreach ($categories as $category)
-                    <div class="card m-3">
+                    <div class="shadow m-3 d-flex align-items-center justify-content-around" style="width:200px">
                         {{$category->category}}
                         <form method="POST" action="{{route('delete.category', $category)}}" >
                             @csrf
@@ -46,7 +46,7 @@
             <h5 class="card-header mb-3">Les tags : </h5>
             <div class="card p-3 m-3 shadow">
                 @foreach ($tags as $tag)
-                    <div class="card m-3">
+                    <div class="shadow m-3 d-flex align-items-center justify-content-around" style="width:200px">
                         {{$tag->tag}}
                         <form method="POST" action="{{route('delete.tag', $tag)}}" >
                             @csrf
